@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark"
+    android:paddingHorizontal="@dimen/padding_auth_horizontal"
+    android:paddingTop="@dimen/padding_auth_top"
+    tools:context=".fragment.AuthFragment">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/authTextView"
+        style="@style/TextAppearance.Material3.HeadlineMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_auth"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/emailTextView"
+        style="@style/TextAppearance.Material3.TitleMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/text_email"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/authTextView" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailInputLayout"
+        style="@style/TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_text_input"
+        android:layout_marginTop="@dimen/margin_edit_text_title"
+        app:layout_constraintTop_toBottomOf="@id/emailTextView">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailEditText"
+            style="@style/TextInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/hint_email"
+            android:inputType="textEmailAddress" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/passwordTextView"
+        style="@style/TextAppearance.Material3.TitleMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_password"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/emailInputLayout" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordInputLayout"
+        style="@style/TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_text_input"
+        android:layout_marginTop="@dimen/margin_edit_text_title"
+        app:layout_constraintTop_toBottomOf="@id/passwordTextView">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwordEditText"
+            style="@style/TextInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/hint_enter_password"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/authButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/green"
+        android:text="@string/text_auth"
+        app:layout_constraintTop_toBottomOf="@id/passwordInputLayout" />
+
+    <LinearLayout
+        android:id="@+id/textViewContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/authButton">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/noAccTextView"
+            style="@style/TextAppearance.Material3.BodySmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingEnd="4dp"
+            android:text="@string/text_no_acc"
+            android:textColor="@color/white" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/registerTextView"
+            style="@style/TextAppearance.Material3.BodySmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/text_register"
+            android:textColor="@color/green" />
+
+    </LinearLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/forgotPasswordTextView"
+        style="@style/TextAppearance.Material3.BodySmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/text_forgot_password"
+        android:textColor="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewContainer" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:dividerColor="@color/stroke"
+        app:layout_constraintTop_toBottomOf="@id/forgotPasswordTextView" />
+
+    <LinearLayout
+        android:id="@+id/externalButtonContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/vkButton"
+            android:layout_width="@dimen/width_external_button"
+            android:layout_height="@dimen/height_external_button"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/vk_button_background"
+            android:src="@drawable/icon_vk"
+            app:layout_constraintTop_toBottomOf="@id/passwordInputLayout" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/okButton"
+            android:layout_width="@dimen/width_external_button"
+            android:layout_height="@dimen/height_external_button"
+            android:background="@drawable/ok_button_background"
+            android:src="@drawable/icon_ok"
+            app:layout_constraintTop_toBottomOf="@id/passwordInputLayout" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

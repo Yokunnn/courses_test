@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">courses_test</string>
+    <string name="text_auth">Вход</string>
+    <string name="hint_email">example@gmail.com</string>
+    <string name="text_email">Email</string>
+    <string name="text_password">Пароль</string>
+    <string name="hint_enter_password">Введите пароль</string>
+    <string name="text_register">Регистрация</string>
+    <string name="text_no_acc">Нет аккаунта?</string>
+    <string name="text_forgot_password">Забыл пароль</string>
 </resources>

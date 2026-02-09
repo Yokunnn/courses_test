@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextInputLayout" parent="Widget.Material3.TextInputLayout.FilledBox">
+        <item name="boxCornerRadiusBottomEnd">@dimen/corner_rad_text_input</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/corner_rad_text_input</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/corner_rad_text_input</item>
+        <item name="boxCornerRadiusTopStart">@dimen/corner_rad_text_input</item>
+        <item name="boxBackgroundColor">@color/light_gray</item>
+        <item name="boxStrokeColor">@color/transparent</item>
+        <item name="android:textColorHint">@color/half_white</item>
+    </style>
+
+    <style name="TextInputEditText" parent="Widget.Material3.TextInputEditText.FilledBox">
+        <item name="android:textAppearance">@style/TextAppearance.Material3.BodyMedium</item>
+    </style>
+
+    <style name="ExternalButton" parent="Widget.Material3.Button">
+        <item name="iconSize">0dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">0dp</item>
+    </style>
+</resources>
