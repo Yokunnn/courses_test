@@ -10,6 +10,15 @@
     <dimen name="height_external_button">40dp</dimen>
     <dimen name="dimen_filter_button">56dp</dimen>
     <dimen name="size_icon_search">56dp</dimen>
-    <dimen name="radius_filter_button">100dp</dimen>
+    <dimen name="radius_standard">100dp</dimen>
     <dimen name="height_sort_button">52dp</dimen>
+    <dimen name="height_item_course">236dp</dimen>
+    <dimen name="radius_item_course">16dp</dimen>
+    <dimen name="height_item_course_image">114dp</dimen>
+    <dimen name="padding_course_item_content">16dp</dimen>
+    <dimen name="dimen_favourites_button">28dp</dimen>
+    <dimen name="margin_fav_button_small">8dp</dimen>
+    <dimen name="padding_filledtv_horizontal">6dp</dimen>
+    <dimen name="padding_filledtv_vertical">2dp</dimen>
+    <dimen name="padding_filledtv_icon">4dp</dimen>
 </resources>

@@ -42,7 +42,7 @@
         android:insetRight="0dp"
         android:insetBottom="0dp"
         app:backgroundTint="@color/dark_gray"
-        app:cornerRadius="@dimen/radius_filter_button"
+        app:cornerRadius="@dimen/radius_standard"
         app:icon="@drawable/icon_filter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/searchInputLayout" />
