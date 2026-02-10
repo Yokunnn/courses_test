@@ -12,6 +12,17 @@
         <item name="hintEnabled">false</item>
     </style>
 
+    <style name="SearchInputLayout" parent="Widget.Material3.TextInputLayout.FilledBox">
+        <item name="boxCornerRadiusBottomEnd">@dimen/corner_rad_search_input</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/corner_rad_search_input</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/corner_rad_search_input</item>
+        <item name="boxCornerRadiusTopStart">@dimen/corner_rad_search_input</item>
+        <item name="boxBackgroundColor">@color/dark_gray</item>
+        <item name="boxStrokeColor">@color/transparent</item>
+        <item name="cursorColor">@color/white</item>
+        <item name="hintEnabled">false</item>
+    </style>
+
     <style name="TextInputEditText" parent="Widget.Material3.TextInputEditText.FilledBox">
         <item name="android:textAppearance">@style/TextAppearance.Material3.BodyMedium</item>
         <item name="android:textColorHint">@color/half_white</item>
@@ -19,7 +30,7 @@
         <item name="android:padding">0dp</item>
     </style>
 
-    <style name="ExternalButton" parent="Widget.Material3.Button">
+    <style name="IconButton" parent="Widget.Material3.Button">
         <item name="iconSize">0dp</item>
         <item name="iconGravity">textStart</item>
         <item name="iconPadding">0dp</item>

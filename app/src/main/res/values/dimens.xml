@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="padding_auth_horizontal">16dp</dimen>
+    <dimen name="padding_screen_horizontal">16dp</dimen>
     <dimen name="padding_auth_top">140dp</dimen>
     <dimen name="corner_rad_text_input">30dp</dimen>
+    <dimen name="corner_rad_search_input">28dp</dimen>
     <dimen name="height_text_input">40dp</dimen>
     <dimen name="margin_edit_text_title">8dp</dimen>
     <dimen name="width_external_button">156dp</dimen>
     <dimen name="height_external_button">40dp</dimen>
+    <dimen name="dimen_filter_button">56dp</dimen>
+    <dimen name="size_icon_search">56dp</dimen>
+    <dimen name="radius_filter_button">100dp</dimen>
+    <dimen name="height_sort_button">52dp</dimen>
 </resources>

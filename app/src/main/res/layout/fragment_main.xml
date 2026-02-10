@@ -1,15 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark"
+    android:paddingHorizontal="@dimen/padding_screen_horizontal"
     tools:context=".fragment.MainFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/text_main"
-        android:textColor="@color/white" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/searchInputLayout"
+        style="@style/SearchInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimen_filter_button"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@id/filterButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/icon_search"
+        app:startIconMinSize="@dimen/size_icon_search"
+        app:startIconTint="@android:color/white">
 
-</FrameLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/searchEditText"
+            style="@style/TextInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/text_search_courses"
+            android:inputType="textEmailAddress" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/filterButton"
+        style="@style/IconButton"
+        android:layout_width="@dimen/dimen_filter_button"
+        android:layout_height="@dimen/dimen_filter_button"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
+        app:backgroundTint="@color/dark_gray"
+        app:cornerRadius="@dimen/radius_filter_button"
+        app:icon="@drawable/icon_filter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/searchInputLayout" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sortButton"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/height_sort_button"
+        android:padding="0dp"
+        android:text="@string/text_sort_button"
+        android:textColor="@color/green"
+        app:backgroundTint="@color/dark"
+        app:icon="@drawable/icon_arrow_down_up"
+        app:iconGravity="end"
+        app:iconPadding="4dp"
+        app:iconTint="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchInputLayout" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/coursesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sortButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,4 +11,6 @@
     <string name="text_account">Аккаунт</string>
     <string name="text_favourites">Избранное</string>
     <string name="text_main">Главная</string>
+    <string name="text_search_courses">Search courses...</string>
+    <string name="text_sort_button">По дате добавления</string>
 </resources>
