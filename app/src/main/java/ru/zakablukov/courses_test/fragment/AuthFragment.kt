@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import dev.androidbroadcast.vbpd.viewBinding
 import ru.zakablukov.courses_test.R
 import ru.zakablukov.courses_test.databinding.FragmentAuthBinding
@@ -22,5 +23,13 @@ class AuthFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        initAuthButton()
+    }
+
+    private fun initAuthButton() {
+        binding.authButton.setOnClickListener {
+            findNavController().navigate(R.id.action_authFragment_to_mainFragment)
+        }
     }
 }

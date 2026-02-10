@@ -8,4 +8,7 @@
     <string name="text_register">Регистрация</string>
     <string name="text_no_acc">Нет аккаунта?</string>
     <string name="text_forgot_password">Забыл пароль</string>
+    <string name="text_account">Аккаунт</string>
+    <string name="text_favourites">Избранное</string>
+    <string name="text_main">Главная</string>
 </resources>
