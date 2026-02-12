@@ -44,7 +44,10 @@ class CourseAdapter : RecyclerView.Adapter<CourseAdapter.CourseViewHolder>() {
         with(holder) {
             titleTextView.text = data.title
             descriptionTextView.text = data.description
-            priceTextView.text = data.price
+            priceTextView.text = buildString {
+                append(data.price)
+                append(" ₽")
+            }
             rateTextView.text = data.rate
             startDateTextView.text =
                 DateTimeFormatter.ofPattern(DATE_PATTERN, Locale.forLanguageTag(LOCALE_STRING))
