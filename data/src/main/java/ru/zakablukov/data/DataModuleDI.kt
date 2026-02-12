@@ -5,7 +5,9 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import ru.zakablukov.data.repository.CourseRepositoryImpl
 import ru.zakablukov.data.service.CourseService
+import ru.zakablukov.domain.repository.CourseRepository
 
 object DataModuleDI {
 
@@ -36,6 +38,10 @@ object DataModuleDI {
 
         single<CourseService> {
             get<Retrofit>().create(CourseService::class.java)
+        }
+
+        single<CourseRepository> {
+            CourseRepositoryImpl(get())
         }
     }
 }
