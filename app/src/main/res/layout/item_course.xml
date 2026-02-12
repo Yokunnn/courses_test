@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/height_item_course"
+    android:layout_marginBottom="@dimen/margin_items_rv"
     app:cardBackgroundColor="@color/dark_gray"
     app:cardCornerRadius="@dimen/radius_item_course"
-    app:cardElevation="0dp">
+    app:cardElevation="0dp"
+    app:strokeWidth="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,9 +20,9 @@
             android:layout_height="@dimen/height_item_course_image"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
+            android:src="@drawable/filler_course"
             app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearance="@style/CourseImageStyle"
-            tools:src="@drawable/filler_course" />
+            app:shapeAppearance="@style/CourseImageStyle" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/favouritesButton"
@@ -111,7 +113,8 @@
             app:iconPadding="0dp"
             app:iconTint="@color/green"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:rippleColor="@color/dark_gray" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -21,4 +21,6 @@
     <dimen name="padding_filledtv_horizontal">6dp</dimen>
     <dimen name="padding_filledtv_vertical">2dp</dimen>
     <dimen name="padding_filledtv_icon">4dp</dimen>
+    <dimen name="margin_items_rv">16dp</dimen>
+    <dimen name="height_nav_filler">120dp</dimen>
 </resources>
