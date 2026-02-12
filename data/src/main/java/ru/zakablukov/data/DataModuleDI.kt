@@ -9,39 +9,36 @@ import ru.zakablukov.data.repository.CourseRepositoryImpl
 import ru.zakablukov.data.service.CourseService
 import ru.zakablukov.domain.repository.CourseRepository
 
-object DataModuleDI {
+private const val BASE_URL = "https://drive.usercontent.google.com/"
 
-    private const val BASE_URL = "https://drive.usercontent.google.com/"
+val dataModuleDI = module {
 
-    val dataModuleDI = module {
+    single<HttpLoggingInterceptor> {
+        HttpLoggingInterceptor()
+            .apply {
+                level = HttpLoggingInterceptor.Level.BODY
+            }
+    }
 
-        single<Retrofit> {
-            Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(BASE_URL)
-                .client(get<OkHttpClient>())
-                .build()
-        }
+    single<OkHttpClient> {
+        OkHttpClient.Builder()
+            .addInterceptor(get<HttpLoggingInterceptor>())
+            .build()
+    }
 
-        single<HttpLoggingInterceptor> {
-            HttpLoggingInterceptor()
-                .apply {
-                    level = HttpLoggingInterceptor.Level.BODY
-                }
-        }
+    single<Retrofit> {
+        Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(BASE_URL)
+            .client(get<OkHttpClient>())
+            .build()
+    }
 
-        single<OkHttpClient> {
-            OkHttpClient.Builder()
-                .addInterceptor(get<HttpLoggingInterceptor>())
-                .build()
-        }
+    single<CourseService> {
+        get<Retrofit>().create(CourseService::class.java)
+    }
 
-        single<CourseService> {
-            get<Retrofit>().create(CourseService::class.java)
-        }
-
-        single<CourseRepository> {
-            CourseRepositoryImpl(get())
-        }
+    single<CourseRepository> {
+        CourseRepositoryImpl(get())
     }
 }
