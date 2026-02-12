@@ -5,11 +5,11 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import ru.zakablukov.data.service.CourseService
 
 object DataModuleDI {
 
-    private const val BASE_URL =
-        "https://drive.usercontent.google.com/u/0/uc?id=15arTK7XT2b7Yv4BJsmDctA4Hg-BbS8-q&export=download"
+    private const val BASE_URL = "https://drive.usercontent.google.com/"
 
     val dataModuleDI = module {
 
@@ -32,6 +32,10 @@ object DataModuleDI {
             OkHttpClient.Builder()
                 .addInterceptor(get<HttpLoggingInterceptor>())
                 .build()
+        }
+
+        single<CourseService> {
+            get<Retrofit>().create(CourseService::class.java)
         }
     }
 }
