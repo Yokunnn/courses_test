@@ -1,6 +1,6 @@
 package ru.zakablukov.domain.model
 
-import java.util.Date
+import java.time.Instant
 
 data class Course(
     val id: Int,
@@ -8,7 +8,7 @@ data class Course(
     val description: String,
     val price: String,
     val rate: String,
-    val startDate: Date,
+    val startDate: Instant,
     val hasLike: Boolean,
-    val publishDate: Date
+    val publishDate: Instant
 )
