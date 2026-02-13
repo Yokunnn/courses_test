@@ -3,6 +3,7 @@ package ru.zakablukov.courses_test.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import ru.zakablukov.courses_test.R
 import ru.zakablukov.courses_test.databinding.ItemCourseBinding
 import ru.zakablukov.domain.model.Course
 import java.time.ZoneId
@@ -55,6 +56,12 @@ class CourseAdapter : RecyclerView.Adapter<CourseAdapter.CourseViewHolder>() {
                     .format(data.startDate)
                     .split(" ")
                     .joinToString(" ") { it.replaceFirstChar { char -> char.uppercase() } }
+            if (data.hasLike) {
+                with(favouritesButton) {
+                    setIconResource(R.drawable.icon_favourites_fill)
+                    setIconTintResource(R.color.green)
+                }
+            }
         }
     }
 
