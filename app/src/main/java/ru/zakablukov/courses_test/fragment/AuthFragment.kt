@@ -1,10 +1,12 @@
 package ru.zakablukov.courses_test.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.navigation.fragment.findNavController
 import dev.androidbroadcast.vbpd.viewBinding
 import ru.zakablukov.courses_test.R
@@ -25,11 +27,26 @@ class AuthFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initAuthButton()
+        initExternalButtons()
     }
 
     private fun initAuthButton() {
         binding.authButton.setOnClickListener {
             findNavController().navigate(R.id.action_authFragment_to_mainFragment)
         }
+    }
+
+    private fun initExternalButtons() {
+        binding.vkButton.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, URL_VK.toUri()))
+        }
+        binding.okButton.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, URL_OK.toUri()))
+        }
+    }
+
+    companion object {
+        private const val URL_VK = "https://vk.com/"
+        private const val URL_OK = "https://ok.ru/"
     }
 }
