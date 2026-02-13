@@ -10,7 +10,9 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
-class CourseAdapter : RecyclerView.Adapter<CourseAdapter.CourseViewHolder>() {
+class CourseAdapter(
+    private val onFavClick: (Course) -> Unit
+) : RecyclerView.Adapter<CourseAdapter.CourseViewHolder>() {
 
     private var items: MutableList<Course> = emptyList<Course>().toMutableList()
 
@@ -60,9 +62,14 @@ class CourseAdapter : RecyclerView.Adapter<CourseAdapter.CourseViewHolder>() {
                 with(favouritesButton) {
                     setIconResource(R.drawable.icon_favourites_fill)
                     setIconTintResource(R.color.green)
-                    isEnabled = false
+                }
+            } else {
+                with(favouritesButton) {
+                    setIconResource(R.drawable.icon_favourites)
+                    setIconTintResource(R.color.white)
                 }
             }
+            favouritesButton.setOnClickListener { onFavClick(data) }
         }
     }
 

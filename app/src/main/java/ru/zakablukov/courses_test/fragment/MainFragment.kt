@@ -29,7 +29,13 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        courseAdapter = CourseAdapter()
+
+        courseAdapter = CourseAdapter(
+            onFavClick = {
+                viewModel.addOrDeleteFavCourse(it)
+            }
+        )
+
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
 

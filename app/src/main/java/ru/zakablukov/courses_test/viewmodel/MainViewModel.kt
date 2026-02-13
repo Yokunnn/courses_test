@@ -41,4 +41,28 @@ class MainViewModel(
             _coursesResult.emit(_coursesResult.value.orEmpty().sortedByDescending { it.publishDate })
         }
     }
+
+    fun addOrDeleteFavCourse(course: Course) {
+        viewModelScope.launch {
+            if (course.hasLike) {
+                courseRepository.deleteFavouriteCourse(course.id)
+            } else {
+                courseRepository.addFavouriteCourse(course)
+            }
+            updateFavedItem(course)
+        }
+    }
+
+    private suspend fun updateFavedItem(course: Course) {
+        if (_coursesLoadState.value == LoadState.SUCCESS) {
+            val updList = _coursesResult.value?.map { c ->
+                if (c.id == course.id) {
+                    c.copy(hasLike = !c.hasLike)
+                } else {
+                    c
+                }
+            }
+            _coursesResult.emit(updList)
+        }
+    }
 }

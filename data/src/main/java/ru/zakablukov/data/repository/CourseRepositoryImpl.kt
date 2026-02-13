@@ -21,9 +21,11 @@ class CourseRepositoryImpl(
             val coursesResponse = courseService.getCourses()
             val courses = coursesResponse.toDomain()
             courses.forEach { c ->
+                //Считаю сервер за первоисточник и синхронизирую с локальной бд
                 if (c.hasLike) addFavouriteCourse(c)
             }
-            courses
+            val favouritesIds = favouriteCourseDao.getFavouritesIds().toSet()
+            courses.map { it.copy(hasLike = favouritesIds.contains(it.id)) }
         }
 
     override fun getFavouriteCourses(): Flow<List<Course>> =
