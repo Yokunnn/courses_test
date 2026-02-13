@@ -83,8 +83,14 @@ class MainFragment : Fragment() {
                 lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                     viewModel.coursesLoadState.collect { loadState ->
                         when(loadState){
-                            LoadState.LOADING -> Log.d(COURSES_LOAD_TAG, loadState.name)
-                            LoadState.SUCCESS -> Log.d(COURSES_LOAD_TAG, loadState.name)
+                            LoadState.LOADING -> {
+                                Log.d(COURSES_LOAD_TAG, loadState.name)
+                                binding.coursesProgressIndicator.visibility = View.VISIBLE
+                            }
+                            LoadState.SUCCESS -> {
+                                Log.d(COURSES_LOAD_TAG, loadState.name)
+                                binding.coursesProgressIndicator.visibility = View.GONE
+                            }
                             LoadState.ERROR -> Log.d(COURSES_LOAD_TAG, loadState.name)
                             null -> Log.d(COURSES_LOAD_TAG, "init")
                         }

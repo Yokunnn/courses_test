@@ -58,6 +58,7 @@ class FavouritesFragment : Fragment() {
                 lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                     viewModel.favouriteCourses.collect { favs ->
                         favouritesAdapter.update(favs.toMutableList())
+                        binding.favouritesProgressIndicator.visibility = View.GONE
                     }
                 }
             }
