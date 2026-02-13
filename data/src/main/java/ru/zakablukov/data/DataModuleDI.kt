@@ -54,6 +54,6 @@ val dataModuleDI = module {
     }
 
     single<CourseRepository> {
-        CourseRepositoryImpl(get())
+        CourseRepositoryImpl(get(), get())
     }
 }
