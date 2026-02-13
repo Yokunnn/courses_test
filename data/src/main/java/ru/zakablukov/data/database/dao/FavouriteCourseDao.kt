@@ -3,13 +3,14 @@ package ru.zakablukov.data.database.dao
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Upsert
+import kotlinx.coroutines.flow.Flow
 import ru.zakablukov.data.database.entity.FavouriteCourseEntity
 
 @Dao
 interface FavouriteCourseDao {
 
     @Query(SELECT_ALL_FAV_COURSES)
-    suspend fun getFavouriteCourses(): List<FavouriteCourseEntity>
+    fun getFavouriteCourses(): Flow<List<FavouriteCourseEntity>>
 
     @Upsert
     suspend fun upsertFavouriteCourse(courseEntity: FavouriteCourseEntity)
