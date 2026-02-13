@@ -1,10 +1,13 @@
 package ru.zakablukov.data
 
+import androidx.room.Room
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import ru.zakablukov.data.database.AppDatabase
+import ru.zakablukov.data.database.dao.FavouriteCourseDao
 import ru.zakablukov.data.repository.CourseRepositoryImpl
 import ru.zakablukov.data.service.CourseService
 import ru.zakablukov.domain.repository.CourseRepository
@@ -36,6 +39,18 @@ val dataModuleDI = module {
 
     single<CourseService> {
         get<Retrofit>().create(CourseService::class.java)
+    }
+
+    single<AppDatabase> {
+        Room.databaseBuilder(
+            get(),
+            AppDatabase::class.java,
+            "TestCourseDatabase"
+        ).build()
+    }
+
+    single<FavouriteCourseDao> {
+        get<AppDatabase>().favouriteCourseDao()
     }
 
     single<CourseRepository> {
