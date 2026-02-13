@@ -60,6 +60,7 @@ class CourseAdapter : RecyclerView.Adapter<CourseAdapter.CourseViewHolder>() {
                 with(favouritesButton) {
                     setIconResource(R.drawable.icon_favourites_fill)
                     setIconTintResource(R.color.green)
+                    isEnabled = false
                 }
             }
         }
@@ -68,8 +69,9 @@ class CourseAdapter : RecyclerView.Adapter<CourseAdapter.CourseViewHolder>() {
     override fun getItemCount(): Int = items.size
 
     fun update(data: MutableList<Course>) {
+        items.clear()
         items.addAll(data)
-        notifyItemRangeInserted(items.size - 1, data.size)
+        notifyDataSetChanged()
     }
 
     companion object {

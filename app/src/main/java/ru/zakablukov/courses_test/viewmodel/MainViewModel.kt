@@ -35,4 +35,10 @@ class MainViewModel(
             }
         }
     }
+
+    fun sortCourses() {
+        viewModelScope.launch {
+            _coursesResult.emit(_coursesResult.value.orEmpty().sortedByDescending { it.publishDate })
+        }
+    }
 }

@@ -37,6 +37,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initCoursesRecyclerView()
+        initSortButton()
         viewModel.getCourses()
 
         observeCoursesLoadState()
@@ -47,6 +48,12 @@ class MainFragment : Fragment() {
         with(binding.coursesRecyclerView) {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter = courseAdapter
+        }
+    }
+
+    private fun initSortButton() {
+        binding.sortButton.setOnClickListener {
+            viewModel.sortCourses()
         }
     }
 
