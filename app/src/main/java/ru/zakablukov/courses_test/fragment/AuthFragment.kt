@@ -9,12 +9,15 @@ import android.view.ViewGroup
 import androidx.core.net.toUri
 import androidx.navigation.fragment.findNavController
 import dev.androidbroadcast.vbpd.viewBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.zakablukov.courses_test.R
 import ru.zakablukov.courses_test.databinding.FragmentAuthBinding
+import ru.zakablukov.courses_test.viewmodel.AuthViewModel
 
 class AuthFragment : Fragment() {
 
     private val binding by viewBinding(FragmentAuthBinding::bind)
+    private val viewModel: AuthViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,8 +34,16 @@ class AuthFragment : Fragment() {
     }
 
     private fun initAuthButton() {
-        binding.authButton.setOnClickListener {
-            findNavController().navigate(R.id.action_authFragment_to_mainFragment)
+        with(binding.authButton) {
+            setOnClickListener {
+                if (viewModel.validFields(
+                        binding.emailEditText.text.toString(),
+                        binding.passwordEditText.text.toString()
+                    )
+                ) {
+                    findNavController().navigate(R.id.action_authFragment_to_mainFragment)
+                }
+            }
         }
     }
 
